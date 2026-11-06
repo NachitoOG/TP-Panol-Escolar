@@ -1,0 +1,9 @@
+# Archivos que genera Visual Studio al compilar
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Archivos temporales de Office
+~$*
