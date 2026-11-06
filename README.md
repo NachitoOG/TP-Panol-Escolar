@@ -41,8 +41,7 @@ Trabajo Integrador Individual de **Modelos y Sistemas — 7mo Año** (Escuela T�
 │   └── Entidades/         Alumno, Herramienta, Prestamo, Historial
 ├── BaseDeDatos/           Script de creación de la base
 ├── Capturas/              Capturas de pantalla y diagramas
-├── Documentacion_TP_Panol_Escolar.pdf
-└── Presentacion_TP_Panol_Escolar.pptx
+└── Documentacion_TP_Panol_Escolar.pdf
 ```
 
 ## Documentación
