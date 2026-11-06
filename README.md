@@ -1,63 +1,54 @@
 # Sistema de Gestión de Préstamos del Pañol Escolar
 
-Trabajo Integrador Individual — **Modelos y Sistemas — 7mo Año** (Escuela Técnica)
-Opción A: Sistema de Gestión de Préstamos de Pañol Escolar.
+Sistema de escritorio para controlar los préstamos de herramientas del pañol de la escuela: stock, entregas y devoluciones, historial de cada herramienta y reporte de insumos dañados.
 
-Sistema hecho en **C# (Windows Forms)** con base de datos **SQL Server**, usando **programación orientada a objetos** y separado en **3 capas**.
+Trabajo Integrador Individual de **Modelos y Sistemas — 7mo Año** (Escuela Técnica), Opción A.
 
-## ¿Qué hace?
+## Funcionalidades
 
-- **Préstamos:** registra la entrega de herramientas a un alumno y su devolución (en buen estado o dañada).
-- **Alumnos:** alta de alumnos y manejo de sanciones.
-- **Stock de herramientas:** cuántas hay en total, disponibles, prestadas y dañadas.
-- **Reportes:** reporte de insumos dañados e historial de estado de cada herramienta.
+- Registrar préstamos y devoluciones (en buen estado o dañadas).
+- Alta de alumnos y manejo de sanciones.
+- Control de stock: total, disponibles, prestadas y dañadas.
+- Reporte de insumos dañados e historial de estado por herramienta.
+- Un alumno sancionado no puede pedir herramientas, y no se puede prestar más de lo disponible.
 
-Reglas del sistema:
-- Un alumno con sanción activa no puede pedir herramientas.
-- No se puede prestar más de lo que hay disponible.
-- Si una herramienta vuelve dañada, no vuelve al stock y el alumno queda sancionado.
+## Tecnologías
 
-## Estructura del repositorio
+- C# con Windows Forms (.NET 10)
+- SQL Server Express
+- Microsoft.Data.SqlClient
+- Programación orientada a objetos, arquitectura en 3 capas
 
-```
-TP_Panol_Escolar/
-├── PanolEscolar.sln            Solución de Visual Studio
-├── CapaPresentacion/           Formulario (Windows Forms)
-├── CapaNegocio/                Reglas del sistema
-├── CapaDatos/                  Conexión a SQL Server, consultas y entidades
-│   └── Entidades/              Alumno, Herramienta, Prestamo, Historial
-├── BaseDeDatos/
-│   └── PanolEscolar.sql        Script para crear la base con datos de prueba
-├── Capturas/                   Capturas de pantalla y diagramas
-├── Documentacion_TP_Panol_Escolar.pdf   Documentación completa del TP
-└── Presentacion_TP_Panol_Escolar.pptx   Presentación para exponer
-```
+## Requisitos
 
-## Arquitectura en 3 capas
+- Visual Studio 2026 (o 2022 con .NET 10) con el módulo de desarrollo de escritorio .NET
+- SQL Server Express y SQL Server Management Studio
 
-| Capa | Proyecto | Qué hace |
-|---|---|---|
-| Presentación | `CapaPresentacion` | La ventana: toma los datos y muestra resultados. No tiene SQL. |
-| Negocio | `CapaNegocio` | Validaciones, sanciones y control de stock. |
-| Datos | `CapaDatos` | Se conecta a SQL Server y convierte las filas en objetos. |
+## Instalación y ejecución
 
-![Capas del sistema](Capturas/capas.png)
-
-## Cómo ejecutarlo
-
-1. Abrir **SQL Server Management Studio**, conectarse a `.\SQLEXPRESS` y ejecutar `BaseDeDatos/PanolEscolar.sql` (F5).
-2. Abrir `PanolEscolar.sln` con **Visual Studio 2026** (o 2022 con .NET 10).
+1. Abrir SQL Server Management Studio, conectarse a `.\SQLEXPRESS` y ejecutar `BaseDeDatos/PanolEscolar.sql`. Crea la base `PanolEscolar` con datos de prueba.
+2. Abrir `PanolEscolar.sln` en Visual Studio.
 3. Si el servidor SQL tiene otro nombre, cambiar la cadena de conexión en `CapaDatos/Conexion.cs`.
-4. Verificar que **CapaPresentacion** sea el proyecto de inicio y presionar **F5**.
+4. Establecer `CapaPresentacion` como proyecto de inicio y ejecutar con F5.
+
+## Estructura del proyecto
+
+```
+├── PanolEscolar.sln
+├── CapaPresentacion/      Formulario (interfaz de usuario)
+├── CapaNegocio/           Reglas y validaciones
+├── CapaDatos/             Acceso a SQL Server
+│   └── Entidades/         Alumno, Herramienta, Prestamo, Historial
+├── BaseDeDatos/           Script de creación de la base
+├── Capturas/              Capturas de pantalla y diagramas
+├── Documentacion_TP_Panol_Escolar.pdf
+└── Presentacion_TP_Panol_Escolar.pptx
+```
 
 ## Documentación
 
-En [Documentacion_TP_Panol_Escolar.pdf](Documentacion_TP_Panol_Escolar.pdf) están todos los apartados de la consigna:
+La documentación completa (marco conceptual, paso a paso, diagrama de flujo, caso de uso y captura anotada) está en [Documentacion_TP_Panol_Escolar.pdf](Documentacion_TP_Panol_Escolar.pdf).
 
-1. Marco conceptual y clasificación
-2. Documentación paso a paso (registrar un préstamo)
-3. Diagrama de flujo del proceso
-4. Caso de uso formal
-5. Captura anotada de la interfaz
+## Autor
 
-![Pantalla de préstamos](Capturas/cap_prestamos.png)
+Ignacio Rivarola Centurion
